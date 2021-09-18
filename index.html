@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles.css">
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <title>ToDo</title>
+    <script>
+
+        function drag(event, p_id){
+            event.dataTransfer.setData("card transfer", event.target.id);
+            event.dataTransfer.setData("container transfer", p_id);
+        }
+
+        function allowDrop(event){
+            event.preventDefault();
+        }
+
+        function drop(event, target_id){
+            event.preventDefault();
+            var data = event.dataTransfer.getData("card transfer");
+            document.getElementById(target_id).appendChild(document.getElementById(data));
+            cleanUp(document.getElementById(target_id).children[0].id, event.dataTransfer.getData("container transfer"));
+        }
+
+        function cleanUp(ch_id, p_id){
+            document.getElementById(p_id).appendChild(document.getElementById(ch_id));
+            f20();
+        }
+
+        function f20(){
+            console.log("f20 called");
+            let c = [];
+            let hakai = document.getElementsByClassName('card_text_t');
+            console.log(hakai);
+            for(let i=0;i<hakai.length;i++){
+                let status = "";
+                if(hakai[i].parentElement.parentElement.children[0].checked){
+                    status = "checked";
+                }
+                else{
+                    status = "unchecked";
+                }
+                c.push({name: hakai[i].parentElement.parentElement.id, value: hakai[i].innerText, status: status});
+            }
+            window.localStorage.setItem('chores', JSON.stringify(c));
+        }
+
+        function f1(){
+            let rb = document.getElementsByClassName('rb');
+            let count = 0;
+            for(let i=0;i<rb.length;i++){
+                if(rb[i].checked == false)
+                    count++;
+            }
+            document.getElementById('item_text').innerText = count+" item left";
+            f20();
+        }
+
+        function f2(){
+            let rb = document.getElementsByClassName('rb');
+            for(let i=0;i<rb.length;i++){
+                if(rb[i].checked == true){
+                    console.log(rb[i].parentElement.parentElement.id);
+                    rb[i].parentElement.parentElement.style = "display:none";
+                }else{
+                    rb[i].parentElement.parentElement.style = "display:flex";
+                }
+            }
+        }
+
+        function f3(){
+            let rb = document.getElementsByClassName('rb');
+            for(let i=0;i<rb.length;i++){
+                    console.log(rb[i].parentElement.parentElement.id);
+                    rb[i].parentElement.parentElement.style = "display:flex";
+            }
+        }
+
+        function f4(){
+            let rb = document.getElementsByClassName('rb');
+            for(let i=0;i<rb.length;i++){
+                if(rb[i].checked == false){
+                    console.log(rb[i].parentElement.parentElement.id);
+                    rb[i].parentElement.parentElement.style = "display:none";
+                }else{
+                    rb[i].parentElement.parentElement.style = "display:flex";
+                }
+            }
+        }
+
+        function f5(){
+            let rb = document.getElementsByClassName('rb');
+            console.log(rb);
+            for(var i=0;i<rb.length;i++){
+                while(rb[i].checked == true){
+                    document.getElementById("all_cards_container").removeChild(rb[i].parentElement.parentElement);
+                    f20();
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="f10()">
+    <div class="super_main_container">
+            <div class="mountain_bg_container">
+                <img class="mountain_bg_image" src="./src/img/422374adb056e98b5142371d91fd56b1.jpg" alt="mountain">
+            </div>
+            <div class="mountain_bg_overlay"></div>
+            <div class="text_todo_container">
+                <div class="text_todo">TODO</div>
+                <div class="dark_toggle_container">
+                    <div class="dark_toggle">
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                var dark_toggle = document.getElementsByClassName("dark_toggle_container")[0];
+                dark_toggle.style.justifyContent = "flex-start";
+                dark_toggle.addEventListener("click", function(){
+                    dark_toggle.children[0].style.width = "100px";
+                    setTimeout(function(){
+                        dark_toggle.children[0].style.width = "25px";
+                        if(dark_toggle.style.justifyContent == "flex-start"){
+                        dark_toggle.style.justifyContent = "flex-end";
+                        dark_toggle.style.background = "black";
+                        document.getElementsByTagName("body")[0].className = "dark";
+                        }else{
+                            dark_toggle.style.justifyContent = "flex-start";
+                            dark_toggle.style.background = "white";
+                            document.getElementsByTagName("body")[0].className = "normal";
+                        }
+                    },500);
+                });
+            </script>
+            <input id="input_text" class="input_text" type="text" placeholder="Type chores here and press enter">
+
+            <div class="main_container" onchange="f1()">
+                <div id="all_cards_container" onchange="f1()">
+                </div>
+                <div class="cards_footer">
+                    <div id="item_text" class="cards_footer_text">0 item left</div>
+                    <div class="footer_subsection">
+                        <div class="all_btn" onclick="f3()">All</div>
+                        <div class="act_btn" onclick="f2()">Active</div>
+                        <div class="comp_btn" onclick="f4()">Completed</div>
+                    </div>
+                    <div class="clear_btn" onclick="f5()">Clear Completed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="last_text">
+        Drag and drop to rearrange
+    </div>
+    <script src="./src/index.js"></script>
+</body>
+</html>

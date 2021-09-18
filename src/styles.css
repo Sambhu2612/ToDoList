@@ -1,0 +1,372 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.card_container{
+    transition: 0.5s ease-out;
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+body{
+    background-color: rgba(192, 192, 192, 0.2);
+}
+
+input:focus{
+    outline: none;
+}
+
+.super_main_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.mountain_bg_container{
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.mountain_bg_image{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.mountain_bg_overlay{
+    width: 100%;
+    height: 300px;
+    background-color: rgba(131, 41, 131, 0.6);
+    position: absolute;
+}
+
+
+.input_text{
+    position: absolute;
+    left: 10%;
+    top: 63%;
+    width: 290px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 5px;
+    font-size: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.input_text:focus-visible{
+    outline: none;
+}
+
+.main_container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    justify-content: space-between;
+}
+
+.cards{
+    width: 100%;
+    height: 65px;
+    border-bottom: rgba(128, 128, 128, 0.3) solid 1px;
+    border-top: rgba(128, 128, 128, 0.3) solid 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type=radio] {
+    width: 10%;
+    height: 20px;
+    margin: 0;
+}
+
+.cards_text{
+    color: black;
+    transition: 0.5s;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+
+.rb:checked + .cards_text{
+    color: rgba(128, 128, 128, 0.6);
+    text-decoration: line-through;
+    text-decoration-color: rgba(128, 128, 128, 0.6);
+}
+
+.last_text{
+    color: rgba(128, 128, 128, 0.9);
+    font-weight: 900;
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    z-index: -1;
+}
+
+.cards_footer{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    color: rgba(128, 128, 128, 0.9);
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    font-size: small;
+    text-align: center;
+    border-top: rgba(128, 128, 128, 0.4) solid 2px;
+}
+
+.item_text{
+    background: transparent;
+    background-color: transparent;
+    border: none;
+}
+
+#all_cards_container{
+    overflow-y: scroll;
+    height: 450px;
+}
+
+#all_cards_container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.cross{
+    visibility: visible;
+}
+
+.footer_subsection{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.text_todo_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 10%;
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 15px;
+    width: 300px;
+}
+
+.dark_toggle_container{
+    background: #FFFFFF;
+    width: 70px;
+    height: 35px;
+    padding: 0 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+
+.dark_toggle{
+    width: 25px;
+    height: 25px;
+    border-radius: 90px;
+    background: #f6d327;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+body.dark{
+    background: black;
+    color: white;
+}
+
+body.dark .input_text,body.dark .main_container, body.dark .cards_text{
+    background: black;
+    color: white;
+}
+
+.all_btn, .act_btn, .comp_btn, .clear_btn{
+    cursor: pointer;
+}
+
+
+@media (min-width: 1366px){
+    .mountain_bg_container{
+        height: 280px;
+    }
+    .mountain_bg_overlay{
+        height: 280px;
+    }
+    .cross{
+        visibility: hidden;
+    }
+    .text_todo{
+        top: 50%;
+        left: 35%;
+        letter-spacing: 5px;
+        font-weight: 700;
+        font-size: 25px;
+    }
+    .input_text{
+        left: 35%;
+        width: 390px;
+        font-size: 20px;
+    }
+    .main_container{
+        left: 35%;
+        top: 82%;
+        width: 400px;
+        height: 300px;
+    }
+
+    .cards_text{
+        font-size: 20px;
+    }
+
+    .cards_footer{
+        font-size: 15px;
+        height: 60px;
+    }
+
+    .last_text{
+        left: 43%;
+        bottom: 15%;
+    }
+
+}
+
+@media (min-width: 1920px){
+    .mountain_bg_container{
+        height: 400px;
+    }
+
+    .cross{
+        visibility: hidden;
+    }
+    .mountain_bg_overlay{
+        height: 400px;
+    }
+    .text_todo{
+        letter-spacing: 5px;
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    .text_todo_container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        color: white;
+        top: 50%;
+        left: 35%;
+        letter-spacing: 1px;
+        font-weight: 300;
+        font-size: 15px;
+        width: 510px;
+    }
+    
+    .input_text{
+        left: 35%;
+        width: 500px;
+        font-size: 20px;
+    }
+    .main_container{
+        left: 35%;
+        top: 82%;
+        width: 510px;
+        height: 400px;
+    }
+
+    .cards_text{
+        font-size: 20px;
+    }
+
+    .cards_footer{
+        font-size: 15px;
+        height: 60px;
+    }
+
+    .last_text{
+        left: 41%;
+        bottom: 20%;
+        font-size: x-large;
+    }
+}
+
+@media (min-width: 2560px){
+    .mountain_bg_container{
+        height: 700px;
+    }
+    .mountain_bg_overlay{
+        height: 700px;
+    }
+
+    .cross{
+        visibility: hidden;
+    }
+
+    .text_todo{
+        top: 60%;
+        left: 35%;
+        letter-spacing: 10px;
+        font-weight: 700;
+        font-size: 50px;
+    }
+    .input_text{
+        top: 72%;
+        left: 35%;
+        width: 600px;
+        height: 80px;
+        font-size: 30px;
+    }
+    .main_container{
+        left: 35%;
+        top: 88%;
+        width: 610px;
+        height: 600px;
+    }
+
+    .cards_text{
+        font-size: 30px;
+    }
+
+    .cards_footer{
+        font-size: 15px;
+        height: 60px;
+    }
+
+    .cards{
+        height: 80px;
+    }
+
+    #all_cards_container{
+        height: 700px;
+    }
+
+    .last_text{
+        left: 41%;
+        bottom:10%;
+        font-size: x-large;
+    }
+}
