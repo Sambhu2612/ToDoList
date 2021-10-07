@@ -109,11 +109,14 @@
     </script>
 </head>
 <body onload="f10()">
+    <header>
+        <div class="mountain_bg_container">
+            <img class="mountain_bg_image" src="./src/img/422374adb056e98b5142371d91fd56b1.jpg" alt="mountain">
+        </div>
+        <div class="mountain_bg_overlay"></div>
+    </header>
     <div class="super_main_container">
-            <div class="mountain_bg_container">
-                <img class="mountain_bg_image" src="./src/img/422374adb056e98b5142371d91fd56b1.jpg" alt="mountain">
-            </div>
-            <div class="mountain_bg_overlay"></div>
+        <main>
             <div class="text_todo_container">
                 <div class="text_todo">TODO</div>
                 <div class="dark_toggle_container">
@@ -156,10 +159,12 @@
                     <div class="clear_btn" onclick="f5()">Clear Completed</div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="last_text">
-        Drag and drop to rearrange
+            <div class="last_text">
+                <p>Drag and drop to rearrange</p>
+                <p>Select to complete</p>
+                <p>Click on the chores text to edit and press enter</p>
+            </div>
+        </main>
     </div>
     <script src="./src/index.js"></script>
 </body>

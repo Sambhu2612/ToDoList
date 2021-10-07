@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .card_container{
@@ -18,15 +19,27 @@ input:focus{
 }
 
 .super_main_container{
-    position: relative;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    z-index: 3;
+}
+
+main{
+    width: 25%;
+    min-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .mountain_bg_container{
-    position: relative;
     width: 100%;
-    height: 300px;
+    height: 40vh;
+    min-height: 300px;
 }
 
 .mountain_bg_image{
@@ -37,23 +50,23 @@ input:focus{
 
 .mountain_bg_overlay{
     width: 100%;
-    height: 300px;
+    height: 40vh;
+    min-height: 300px;
     background-color: rgba(131, 41, 131, 0.6);
     position: absolute;
+    z-index: 2;
+    top: 0%;
 }
 
 
 .input_text{
-    position: absolute;
-    left: 10%;
-    top: 63%;
-    width: 290px;
-    height: 40px;
+    width: 100%;
+    height: 50px;
     border: none;
     border-radius: 5px;
     outline: none;
     padding: 5px 5px;
-    font-size: 15px;
+    font-size: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -64,11 +77,8 @@ input:focus{
 .main_container{
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 80%;
-    left: 10%;
-    width: 300px;
-    height: 250px;
+    width: 100%;
+    height: 300px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -98,7 +108,7 @@ input[type=radio] {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 
@@ -111,10 +121,7 @@ input[type=radio] {
 .last_text{
     color: rgba(128, 128, 128, 0.9);
     font-weight: 900;
-    position: absolute;
-    bottom: 10%;
-    left: 20%;
-    z-index: -1;
+    text-align: center;
 }
 
 .cards_footer{
@@ -125,7 +132,7 @@ input[type=radio] {
     align-items: center;
     justify-content: space-around;
     gap: 10px;
-    font-size: small;
+    font-size: large;
     text-align: center;
     border-top: rgba(128, 128, 128, 0.4) solid 2px;
 }
@@ -147,7 +154,7 @@ input[type=radio] {
 
 
 .cross{
-    visibility: visible;
+    visibility: hidden;
 }
 
 .footer_subsection{
@@ -161,14 +168,11 @@ input[type=radio] {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
     color: white;
-    top: 50%;
-    left: 10%;
     letter-spacing: 1px;
     font-weight: 300;
-    font-size: 15px;
-    width: 300px;
+    font-size: 25px;
+    width: 100%;
 }
 
 .dark_toggle_container{
@@ -206,167 +210,4 @@ body.dark .input_text,body.dark .main_container, body.dark .cards_text{
 
 .all_btn, .act_btn, .comp_btn, .clear_btn{
     cursor: pointer;
-}
-
-
-@media (min-width: 1366px){
-    .mountain_bg_container{
-        height: 280px;
-    }
-    .mountain_bg_overlay{
-        height: 280px;
-    }
-    .cross{
-        visibility: hidden;
-    }
-    .text_todo{
-        top: 50%;
-        left: 35%;
-        letter-spacing: 5px;
-        font-weight: 700;
-        font-size: 25px;
-    }
-    .input_text{
-        left: 35%;
-        width: 390px;
-        font-size: 20px;
-    }
-    .main_container{
-        left: 35%;
-        top: 82%;
-        width: 400px;
-        height: 300px;
-    }
-
-    .cards_text{
-        font-size: 20px;
-    }
-
-    .cards_footer{
-        font-size: 15px;
-        height: 60px;
-    }
-
-    .last_text{
-        left: 43%;
-        bottom: 15%;
-    }
-
-}
-
-@media (min-width: 1920px){
-    .mountain_bg_container{
-        height: 400px;
-    }
-
-    .cross{
-        visibility: hidden;
-    }
-    .mountain_bg_overlay{
-        height: 400px;
-    }
-    .text_todo{
-        letter-spacing: 5px;
-        font-weight: 700;
-        font-size: 30px;
-    }
-
-    .text_todo_container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        position: absolute;
-        color: white;
-        top: 50%;
-        left: 35%;
-        letter-spacing: 1px;
-        font-weight: 300;
-        font-size: 15px;
-        width: 510px;
-    }
-    
-    .input_text{
-        left: 35%;
-        width: 500px;
-        font-size: 20px;
-    }
-    .main_container{
-        left: 35%;
-        top: 82%;
-        width: 510px;
-        height: 400px;
-    }
-
-    .cards_text{
-        font-size: 20px;
-    }
-
-    .cards_footer{
-        font-size: 15px;
-        height: 60px;
-    }
-
-    .last_text{
-        left: 41%;
-        bottom: 20%;
-        font-size: x-large;
-    }
-}
-
-@media (min-width: 2560px){
-    .mountain_bg_container{
-        height: 700px;
-    }
-    .mountain_bg_overlay{
-        height: 700px;
-    }
-
-    .cross{
-        visibility: hidden;
-    }
-
-    .text_todo{
-        top: 60%;
-        left: 35%;
-        letter-spacing: 10px;
-        font-weight: 700;
-        font-size: 50px;
-    }
-    .input_text{
-        top: 72%;
-        left: 35%;
-        width: 600px;
-        height: 80px;
-        font-size: 30px;
-    }
-    .main_container{
-        left: 35%;
-        top: 88%;
-        width: 610px;
-        height: 600px;
-    }
-
-    .cards_text{
-        font-size: 30px;
-    }
-
-    .cards_footer{
-        font-size: 15px;
-        height: 60px;
-    }
-
-    .cards{
-        height: 80px;
-    }
-
-    #all_cards_container{
-        height: 700px;
-    }
-
-    .last_text{
-        left: 41%;
-        bottom:10%;
-        font-size: x-large;
-    }
 }
