@@ -23,7 +23,7 @@ input:focus{
     flex-direction: column;
     position: absolute;
     width: 100%;
-    top: 30%;
+    top: 25%;
     z-index: 3;
 }
 
@@ -210,4 +210,10 @@ body.dark .input_text,body.dark .main_container, body.dark .cards_text{
 
 .all_btn, .act_btn, .comp_btn, .clear_btn{
     cursor: pointer;
+}
+
+@media screen and (max-width:760px) {
+    .cross{
+        visibility: visible;
+    }
 }
